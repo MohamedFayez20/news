@@ -54,6 +54,7 @@ Widget buildItem(articles, context) => InkWell(
                               Expanded(
                                 child: Text(
                                   '${articles['title']}',
+                                  textDirection: TextDirection.rtl,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 17.0,
