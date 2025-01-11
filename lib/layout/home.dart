@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -15,10 +14,12 @@ import 'package:news/shared/cubit/states.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return DefaultTabController(
       length: 6,
       child: BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+        },
         builder: (context, state) {
           return Scaffold(
             backgroundColor: HexColor('#23323f'),
@@ -62,6 +63,7 @@ class Home extends StatelessWidget {
                 isScrollable: true,
                 labelStyle: TextStyle(fontSize: 18.0),
                 indicatorColor: Colors.redAccent,
+                labelColor: Colors.redAccent,
                 unselectedLabelColor: Colors.grey,
                 tabs: [
                   Tab(

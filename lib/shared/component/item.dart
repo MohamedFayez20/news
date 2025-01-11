@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:news/modules/web_view_screen.dart';
 
@@ -54,7 +52,7 @@ Widget buildItem(articles, context) => InkWell(
                               Expanded(
                                 child: Text(
                                   '${articles['title']}',
-                                  textDirection: TextDirection.rtl,
+                                  textDirection: TextDirection.ltr,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 17.0,

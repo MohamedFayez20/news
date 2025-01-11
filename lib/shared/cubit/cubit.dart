@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/shared/cubit/states.dart';
 import 'package:news/shared/network/remote/dio.dart';
@@ -11,11 +10,12 @@ class AppCubit extends Cubit<AppStates> {
   void getBusiness() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'business',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
       business = value.data['articles'];
+
       emit(GetBusinessSuccessState());
     }).catchError((error) {
       emit(GetBusinessErrorState(error.toString()));
@@ -26,7 +26,7 @@ class AppCubit extends Cubit<AppStates> {
   void getEntertainment() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'entertainment',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
@@ -41,7 +41,7 @@ class AppCubit extends Cubit<AppStates> {
   void getHealth() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'health',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
@@ -56,7 +56,7 @@ class AppCubit extends Cubit<AppStates> {
   void getScience() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'science',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
@@ -71,7 +71,7 @@ class AppCubit extends Cubit<AppStates> {
   void getSports() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'sports',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
@@ -86,7 +86,7 @@ class AppCubit extends Cubit<AppStates> {
   void getTechnology() {
     emit(GetBusinessLoadingState());
     DioHelper.getData(url: 'v2/top-headlines', query: {
-      'country': 'eg',
+      'country': 'us',
       'category': 'technology',
       'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'
     }).then((value) {
@@ -103,7 +103,7 @@ class AppCubit extends Cubit<AppStates> {
     search = [];
     DioHelper.getData(
             url: 'v2/everything',
-            query: {'q': 'apple', 'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'})
+            query: {'q': '$value', 'apiKey': '4b3f01951e404738b0bb28bdfb60ad53'})
         .then((value) {
       search = value.data['articles'];
       emit(GetSearchSuccessState());
